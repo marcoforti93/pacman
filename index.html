@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Online Premium</title>
+    <meta name="description" content="Jogo online do Pac-Man grátis">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Dashboard Lateral Esquerdo (Paisagem) -->
+        <div id="left-panel">
+            <h1 class="logo-title">PAC-MAN</h1>
+            
+            <div class="score-card">
+                PONTOS
+                <span id="score">0</span>
+            </div>
+            
+            <div class="score-card">
+                FASE
+                <span id="level">1</span>
+            </div>
+
+            <div class="score-card">
+                VIDAS
+                <span id="lives">3</span>
+            </div>
+        </div>
+
+        <!-- Coluna Direita (Canvas Centralizado) -->
+        <div id="canvas-wrapper">
+            <canvas id="gameCanvas" width="560" height="620"></canvas>
+            
+            <div id="start-screen" class="overlay">
+                <h1>PAC-MAN</h1>
+                <div class="input-container">
+                    <label for="player-name">SEU NOME:</label>
+                    <input type="text" id="player-name" placeholder="NOME DO JOGADOR" maxlength="12" autocomplete="off" />
+                </div>
+                <button id="btn-start" type="button">INICIAR JOGO</button>
+                <p class="controls">Use as setas do teclado para mover</p>
+            </div>
+            
+            <div id="game-over-screen" class="overlay hidden">
+                <h1>FIM DE JOGO</h1>
+                <p>Jogador: <span id="final-player-name" style="color: #ffff00;"></span></p>
+                <p>Pontuação Final: <span id="final-score">0</span></p>
+                <div class="action-buttons">
+                    <button id="btn-restart" type="button">JOGAR NOVAMENTE</button>
+                    <button id="btn-change-name" type="button">TROCAR NOME</button>
+                </div>
+                <p style="font-size: 10px; margin-top: 15px;">Ou pressione ESPAÇO para tentar novamente</p>
+            </div>
+            
+            <div id="victory-screen" class="overlay hidden">
+                <h1 style="color: #00ffcc;">FASE CONCLUÍDA!</h1>
+                <p>Inimigos ficando mais espertos...</p>
+                <p>Próxima fase iniciando automaticamente...</p>
+            </div>
+            
+            <!-- Intro State overlay -->
+            <div id="ready-screen" class="overlay hidden" style="background: rgba(0,0,0,0.4);">
+                <h2 style="color: #ffff00; font-size: 24px;">PREPARAR!</h2>
+            </div>
+            
+            <!-- Pause overlay -->
+            <div id="pause-screen" class="overlay hidden">
+                <h1>PAUSADO</h1>
+                <p>Pressione ESPAÇO para continuar</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Lateral Direito (Ranking) -->
+        <div id="right-panel">
+            <h2 class="ranking-title">RANKING</h2>
+            <div id="ranking-list">
+                <!-- Preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Desenvolvido por: Marco Forti
+    </footer>
+
+    <!-- Scripts em Ordem -->
+    <script src="js/map.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ghost.js"></script>
+    <script src="js/fruit.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
